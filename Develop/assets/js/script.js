@@ -2,6 +2,7 @@
 
 var currentTime = moment().format("H");
 var descriptionEl = $(".description");
+var saveEventEl = $("saveEvent");
 var timeDisplayEl = $("#time-display");
 var timeOfDay = $(".log");
 
@@ -27,6 +28,13 @@ var scheduleTime = () => {
         }
     }
 };
+
+// handles saving things to local storage and presenting them upon refresh
+
+saveEventEl.click(function () {
+    localStorage.setItem("reminder", saveEventEl.val());
+    localStorage.getItem("reminder");
+});
 
 setInterval(scheduleTime, 1000);
 setInterval(displayTime, 1000);

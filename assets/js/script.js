@@ -32,9 +32,18 @@ var scheduleTime = () => {
 // handles saving things to local storage and presenting them upon refresh
 
 saveEventEl.click(function () {
-    localStorage.setItem("reminder", saveEventEl.val());
-    localStorage.getItem("reminder");
+    window.localStorage.setItem("reminder", timeOfDay.val());
+    // window.localStorage.getItem("reminder");
 });
+
+// function saveDate() {
+//     var input = timeOfDay.val();
+//     localStorage.setItem("reminder", input);
+// }
+
+function loadEvents() {
+    window.localStorage.getItem("reminder");
+}
 
 setInterval(scheduleTime, 1000);
 setInterval(displayTime, 1000);
